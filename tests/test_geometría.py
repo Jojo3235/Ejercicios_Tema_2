@@ -8,7 +8,7 @@ class TestGeometría(unittest.TestCase):
     def test_constructor(self):
         p1 = Punto(2, 3)
         p2 = Punto(-3, -1)
-        p3 = Punto(0, 0)
+        p3 = Punto()
         self.assertEqual(p1.constructor(), [2, 3])
         self.assertEqual(p2.constructor(), [-3, -1])
         self.assertEqual(p3.constructor(), [0, 0])
@@ -16,7 +16,7 @@ class TestGeometría(unittest.TestCase):
     def test_cuadrante(self):
         p1 = Punto(2, 3)
         p2 = Punto(-3, -1)
-        p3 = Punto(0, 0)
+        p3 = Punto()
         p4 = Punto(0, 2)
         p5 = Punto(2, 0)
         self.assertEqual(p1.cuadrante(), "El punto (2, 3) se localiza en el primer cuadrante")
@@ -28,7 +28,7 @@ class TestGeometría(unittest.TestCase):
     def test_vector(self):
         p1 = Punto(2, 3)
         p2 = Punto(-3, -1)
-        p3 = Punto(0, 0)
+        p3 = Punto()
         self.assertEqual(p1.vector(p2), [-5, -4])
         self.assertEqual(p2.vector(p1), [5, 4])
         self.assertEqual(p3.vector(p1), [2, 3])
@@ -45,7 +45,7 @@ class TestGeometría(unittest.TestCase):
     def test_constructor_rectangulo(self):
         r1 = Rectangulo(0, 0, 2, 3)
         r2 = Rectangulo(0, 0, -2, -3)
-        r3 = Rectangulo(0, 0, 0, 0)
+        r3 = Rectangulo()
         self.assertEqual(r1.constructor(), ([0, 0], [2, 0], [2, 3], [0, 3]))
         self.assertEqual(r2.constructor(), ([0, 0], [-2, 0], [-2, -3], [0, -3]))
         self.assertEqual(r3.constructor(), ([0, 0], [0, 0], [0, 0], [0, 0]))
@@ -53,7 +53,23 @@ class TestGeometría(unittest.TestCase):
     def test_base(self):
         r1 = Rectangulo(0, 0, 2, 3)
         r2 = Rectangulo(0, 0, -2, -3)
-        r3 = Rectangulo(0, 0, 0, 0)
-        self.assertEqual(r1.base(), 2)
-        self.assertEqual(r2.base(), -2)
-        self.assertEqual(r3.base(), 0)
+        r3 = Rectangulo()
+        self.assertEqual(r1.base()[3], 2)
+        self.assertEqual(r2.base()[3], 2)
+        self.assertEqual(r3.base()[3], 0)
+
+    def test_altura(self):
+        r1 = Rectangulo(0, 0, 2, 3)
+        r2 = Rectangulo(0, 0, -2, -3)
+        r3 = Rectangulo()
+        self.assertEqual(r1.altura()[3], 3)
+        self.assertEqual(r2.altura()[3], 3)
+        self.assertEqual(r3.altura()[3], 0)
+
+    def test_area(self):
+        r1 = Rectangulo(0, 0, 2, 3)
+        r2 = Rectangulo(0, 0, -2, -3)
+        r3 = Rectangulo()
+        self.assertEqual(r1.area(), 6)
+        self.assertEqual(r2.area(), 6)
+        self.assertEqual(r3.area(), 0)

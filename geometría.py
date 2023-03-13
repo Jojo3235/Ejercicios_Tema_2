@@ -86,3 +86,6 @@ class Rectangulo:
 # p3.cuadrante()
 # p4.cuadrante()
 # p5.cuadrante()
+
+r1 = Rectangulo(0, 0, -2, -3)
+print(r1.base()[3])

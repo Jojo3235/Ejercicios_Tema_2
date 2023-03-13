@@ -73,19 +73,3 @@ class Rectangulo:
     
     def __str__(self):
         return "Rectangulo: A = ({}, {}), B = ({}, {}), C = ({}, {}), D = ({}, {}), base: {}, altura: {}, area: {}".format(self.a, self.b, self.c, self.b, self.c, self.d, self.a, self.d, self.base(), self.altura(), self.area())
-    
-
-
-# p1 = Punto(2, 3)
-# p2 = Punto(-3, -1)
-# p3 = Punto(0, 0)
-# p4 = Punto(0, 2)
-# p5 = Punto(2, 0)
-# print((p1.cuadrante()))     #Por que sale none con print? 
-# p2.cuadrante()
-# p3.cuadrante()
-# p4.cuadrante()
-# p5.cuadrante()
-
-r1 = Rectangulo(0, 0, -2, -3)
-print(r1.base()[3])
